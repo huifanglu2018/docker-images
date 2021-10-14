@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Spinnaker Pre Install
+env:
+  NEW_REGISTRY_URL: "registry.cn-hangzhou.aliyuncs.com/skydoor/"
+  NEW_REGISTRY_URL2: "docker.io/skydoor/"
+
+
+on:
+  push:
+    paths:
+      - '.github/workflows/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+        
+    ## 解析版本文件生成镜像标签
+    ## 上传到docker hub镜像仓库
+    ## docker https://github.com/Azure/docker-login
+    - name: 1-获取gcr.io镜像
+      run: |
+        docker login -u ${{ secrets.MY_ALI_REGISTRY_USER}} -p ${{ secrets.MY_ALI_REGISTRY_PASSWORD}} ${NEW_REGISTRY_URL}
+        curl https://k8s.gcr.io/v2/descheduler/descheduler/manifests/tag
+        docker pull k8s.gcr.io/descheduler/descheduler:latest 
+        docker tag k8s.gcr.io/descheduler/descheduler:latest   registry.cn-hangzhou.aliyuncs.com/skydoor/descheduler:latest
+  
