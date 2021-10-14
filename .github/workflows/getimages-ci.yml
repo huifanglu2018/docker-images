@@ -26,4 +26,4 @@ jobs:
         echo "docker pull from k8s gcr io"
         docker pull k8s.gcr.io/descheduler/descheduler:v0.22.1
         docker tag k8s.gcr.io/descheduler/descheduler:v0.22.1   registry.cn-hangzhou.aliyuncs.com/skydoor/descheduler:v0.22.1
-  
+        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/descheduler:v0.22.1
