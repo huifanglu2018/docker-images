@@ -24,6 +24,6 @@ jobs:
       run: |
         docker login -u ${{ secrets.MY_ALI_REGISTRY_USER}} -p ${{ secrets.MY_ALI_REGISTRY_PASSWORD}} ${NEW_REGISTRY_URL}
         echo "docker pull from k8s gcr io"
-        docker pull k8s.gcr.io/descheduler/descheduler
-        docker tag k8s.gcr.io/descheduler/descheduler   registry.cn-hangzhou.aliyuncs.com/skydoor/descheduler:latest
+        docker pull k8s.gcr.io/descheduler/descheduler:v0.22.1
+        docker tag k8s.gcr.io/descheduler/descheduler:v0.22.1   registry.cn-hangzhou.aliyuncs.com/skydoor/descheduler:v0.22.1
   
