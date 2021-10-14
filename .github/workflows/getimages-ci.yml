@@ -23,6 +23,7 @@ jobs:
     - name: 1-获取gcr.io镜像
       run: |
         docker login -u ${{ secrets.MY_ALI_REGISTRY_USER}} -p ${{ secrets.MY_ALI_REGISTRY_PASSWORD}} ${NEW_REGISTRY_URL}
+        echo "docker pull from k8s gcr io"
         docker pull k8s.gcr.io/descheduler/descheduler:latest 
         docker tag k8s.gcr.io/descheduler/descheduler:latest   registry.cn-hangzhou.aliyuncs.com/skydoor/descheduler:latest
   
