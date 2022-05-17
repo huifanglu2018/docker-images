@@ -24,19 +24,22 @@ jobs:
       run: |
         docker login -u ${{ secrets.MY_ALI_REGISTRY_USER}} -p ${{ secrets.MY_ALI_REGISTRY_PASSWORD}} ${NEW_REGISTRY_URL}
         echo "docker pull from k8s gcr io"
-        docker pull k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.5.0
-        docker pull chrislusf/seaweedfs-csi-driver:latest
-        docker pull k8s.gcr.io/sig-storage/csi-provisioner:v3.1.0
-        docker pull k8s.gcr.io/sig-storage/csi-attacher:v3.4.0
-        docker pull k8s.gcr.io/sig-storage/csi-resizer:v1.4.0
-        docker tag k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.5.0  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-node-driver-registrar-v2.5.0
-        docker tag chrislusf/seaweedfs-csi-driver:latest registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:seaweedfs-csi-driver-latest
-        docker tag k8s.gcr.io/sig-storage/csi-provisioner:v3.1.0 registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-provisioner-v3.1.0
-        docker tag k8s.gcr.io/sig-storage/csi-attacher:v3.4.0 registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-attacher-v3.4.0
-        docker tag k8s.gcr.io/sig-storage/csi-resizer:v1.4.0 registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-resizer-v1.4.0
+        docker pull crunchydata/crunchy-postgres:centos7-12.5-4.4.2
+        docker tag crunchydata/crunchy-postgres:centos7-12.5-4.4.2 registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:crunchy-postgres-centos7-12.5-4.4.2
+        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:crunchy-postgres-centos7-12.5-4.4.2
+        #docker pull k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.5.0
+        #docker pull chrislusf/seaweedfs-csi-driver:latest
+        #docker pull k8s.gcr.io/sig-storage/csi-provisioner:v3.1.0
+        #docker pull k8s.gcr.io/sig-storage/csi-attacher:v3.4.0
+        #docker pull k8s.gcr.io/sig-storage/csi-resizer:v1.4.0
+        #docker tag k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.5.0  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-node-driver-registrar-v2.5.0
+        #docker tag chrislusf/seaweedfs-csi-driver:latest registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:seaweedfs-csi-driver-latest
+        #docker tag k8s.gcr.io/sig-storage/csi-provisioner:v3.1.0 registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-provisioner-v3.1.0
+        #docker tag k8s.gcr.io/sig-storage/csi-attacher:v3.4.0 registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-attacher-v3.4.0
+        #docker tag k8s.gcr.io/sig-storage/csi-resizer:v1.4.0 registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-resizer-v1.4.0
         
-        docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-node-driver-registrar-v2.5.0
-        docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:seaweedfs-csi-driver-latest
-        docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-provisioner-v3.1.0
-        docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-attacher-v3.4.0
-        docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-resizer-v1.4.0
+        #docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-node-driver-registrar-v2.5.0
+        #docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:seaweedfs-csi-driver-latest
+        #docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-provisioner-v3.1.0
+        #docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-attacher-v3.4.0
+        #docker push  registry.cn-hangzhou.aliyuncs.com/skydoor/seaweed:csi-resizer-v1.4.0
