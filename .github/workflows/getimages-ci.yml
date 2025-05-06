@@ -24,10 +24,12 @@ jobs:
       run: |
         docker login -u ${{ secrets.MY_ALI_REGISTRY_USER}} -p ${{ secrets.MY_ALI_REGISTRY_PASSWORD}} ${NEW_REGISTRY_URL}
         echo "docker pull from k8s gcr io"
-        docker pull registry.gitlab.com/gitlab-org/gitlab-runner:alpine-v11.11.3
-        docker tag registry.gitlab.com/gitlab-org/gitlab-runner:alpine-v11.11.3 registry.cn-hangzhou.aliyuncs.com/skydoor/mirror:gitlab-runner-alpine-v11.11.3
-        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/mirror:gitlab-runner-alpine-v11.11.3
-        
+        docker pull rancher/rancher:v2.7.5
+        docker tag rancher/rancher:v2.7.5 registry.cn-hangzhou.aliyuncs.com/skydoor/mirror:rancher_v2.7.5
+        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/mirror:rancher_v2.7.5
+        docker pull rancher/rancher-agent:v2.7.5
+        docker tag rancher/rancher-agent:v2.7.5 registry.cn-hangzhou.aliyuncs.com/skydoor/mirror:rancher-agent_v2.7.5
+        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/mirror:rancher-agent_v2.7.5
         
         #docker pull k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.5.0
         #docker pull chrislusf/seaweedfs-csi-driver:latest
