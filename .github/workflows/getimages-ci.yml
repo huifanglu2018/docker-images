@@ -24,9 +24,9 @@ jobs:
       run: |
         docker login -u ${{ secrets.MY_ALI_REGISTRY_USER}} -p ${{ secrets.MY_ALI_REGISTRY_PASSWORD}} ${NEW_REGISTRY_URL}
         echo "docker pull from k8s gcr io"
-        docker pull fluent/fluentd:v1.16-1
-        docker tag fluent/fluentd:v1.16-1 registry.cn-hangzhou.aliyuncs.com/skydoor/fluentd:v1.16-1
-        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/fluentd:v1.16-1
+        docker pull copyparty/ac:latest
+        docker tag copyparty/ac:latest registry.cn-hangzhou.aliyuncs.com/skydoor/copyparty_ac:latest
+        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/copyparty_ac:latest
         
         #docker pull k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.5.0
         #docker pull chrislusf/seaweedfs-csi-driver:latest
