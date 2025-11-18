@@ -24,9 +24,9 @@ jobs:
       run: |
         docker login -u ${{ secrets.MY_ALI_REGISTRY_USER}} -p ${{ secrets.MY_ALI_REGISTRY_PASSWORD}} ${NEW_REGISTRY_URL}
         echo "docker pull from k8s gcr io"
-        docker pull  mcpjam/mcp-inspector:latest
-        docker tag mcpjam/mcp-inspector:latest registry.cn-hangzhou.aliyuncs.com/skydoor/mcp-inspector:latest1
-        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/mcp-inspector:latest1
+        docker pull  ghcr.io/modelcontextprotocol/inspector:latest
+        docker tag ghcr.io/modelcontextprotocol/inspector:latest registry.cn-hangzhou.aliyuncs.com/skydoor/modelcontextprotocol-inspector:latest
+        docker push registry.cn-hangzhou.aliyuncs.com/skydoor/modelcontextprotocol-inspector:latest
         
         #docker pull k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.5.0
         #docker pull chrislusf/seaweedfs-csi-driver:latest
